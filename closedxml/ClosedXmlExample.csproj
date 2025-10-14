@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,16 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>CS8618;CS8603;CS8602;CS8604;CS9113</NoWarn>
-    <RootNamespace>DiffEngineDemo</RootNamespace>
+    <RootNamespace>ClosedXmlExample</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets/**/*" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="DiffEngine" Version="16.5.0" />
+<ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
     <PackageReference Include="Ivy" Version="1.*" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Apps" />

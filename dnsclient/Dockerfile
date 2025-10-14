@@ -9,29 +9,21 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Copy and restore
-COPY ["BarcodelibExample.csproj", "./"]
-RUN dotnet restore "BarcodelibExample.csproj"
+COPY ["DnsClientExample.csproj", "./"]
+RUN dotnet restore "DnsClientExample.csproj"
 
 # Copy everything and build
 COPY . .
-RUN dotnet build "BarcodelibExample.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "DnsClientExample.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Publish stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "BarcodelibExample.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=true
+RUN dotnet publish "DnsClientExample.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=true
 
 # Final runtime image
 FROM base AS final
 WORKDIR /app
-
-# Install fonts for SkiaSharp text rendering
-RUN apt-get update && apt-get install -y \
-    fontconfig \
-    libfontconfig1 \
-    fonts-dejavu-core \
-    && rm -rf /var/lib/apt/lists/*
-
 COPY --from=publish /app/publish .
 
 # Set environment variables
@@ -39,4 +31,4 @@ ENV PORT=80
 ENV ASPNETCORE_URLS="http://+:80"
 
 # Run the executable
-ENTRYPOINT ["dotnet","./BarcodelibExample.dll"]
+ENTRYPOINT ["dotnet","./DnsClientExample.dll"]

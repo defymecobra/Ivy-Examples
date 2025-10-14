@@ -6,16 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <NoWarn>CS8618;CS8603;CS8602;CS8604;CS9113</NoWarn>
-    <RootNamespace>CronosExample</RootNamespace>
-    <UserSecretsId>1a26be7b-2cb7-49fa-a0da-dda86a74209b</UserSecretsId>
+    <RootNamespace>DiffengineExample</RootNamespace>
+    <UserSecretsId>2b7c4264-8086-4c7d-883f-944e0d1d884a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Assets/**/*" />
   </ItemGroup>
-<ItemGroup>
-    <PackageReference Include="Cronos" Version="0.11.1" />
+  <ItemGroup>
+    <PackageReference Include="DiffEngine" Version="16.5.0" />
     <PackageReference Include="Ivy" Version="1.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Apps" />
